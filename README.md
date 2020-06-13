@@ -10,7 +10,7 @@ The code requires *open3d*
 usage:
 
 ```bash
-python pcd2bin.py binFileName, pcdFileName
+python bin2pcd.py binFileName, pcdFileName
 ```
 
 for example:
