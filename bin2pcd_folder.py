@@ -19,15 +19,18 @@ def bin_to_pcd(binFileName):
     pcd.points = o3d.utility.Vector3dVector(np_pcd)
     return pcd
 
+
 def main(binFolderName, pcdFolderName):
     for i in os.listdir(binFolderName):
-        binFileName = binFolderName+i
-        print(i)
+        if not i.startswith('.'):
+            binFileName = binFolderName + '/' + i
+            print(i)
 
-        pcd = bin_to_pcd(binFileName)
-        pcdFileName = pcdFolderName+i[:-4]+'.pcd'
-        print(pcdFileName)
-        o3d.io.write_point_cloud(pcdFileName, pcd)
+            pcd = bin_to_pcd(binFileName)
+            pcdFileName = pcdFolderName+i[:-4]+'.pcd'
+            print(pcdFileName)
+            o3d.io.write_point_cloud(pcdFileName, pcd)
+
 
 if __name__ == "__main__":
     a = sys.argv[1]
