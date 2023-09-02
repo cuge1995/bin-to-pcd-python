@@ -29,7 +29,7 @@ def main(binFolderName, pcdFolderName):
             print(i)
 
             pcd = bin_to_pcd(binFileName)
-            pcdFileName = pcdFolderName+i[:-4]+'.pcd'
+            pcdFileName = pcdFolderName + '/' + i[:-4]+'.pcd'
             print(pcdFileName)
             o3d.io.write_point_cloud(pcdFileName, pcd)
 
