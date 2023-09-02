@@ -21,13 +21,15 @@ def bin_to_pcd(binFileName):
 
 
 def main(binFolderName, pcdFolderName):
-    for i in os.listdir(binFolderName):
+    sortedBinFileNames = os.listdir(binFolderName)
+    sortedBinFileNames.sort()
+    for i in sortedBinFileNames:
         if not i.startswith('.'):
             binFileName = binFolderName + '/' + i
             print(i)
 
             pcd = bin_to_pcd(binFileName)
-            pcdFileName = pcdFolderName+i[:-4]+'.pcd'
+            pcdFileName = pcdFolderName + '/' + i[:-4]+'.pcd'
             print(pcdFileName)
             o3d.io.write_point_cloud(pcdFileName, pcd)
 
